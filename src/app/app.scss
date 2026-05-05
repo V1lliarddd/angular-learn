@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100svh;
+  gap: 20px;
+}
+
+.main__app-title {
+  font-size: 64px;
+}
+
+.main__app-description {
+  font-size: 32px;
+  text-transform: capitalize;
+}
+
+.todos-area {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  gap: 20px;
+}
+
+.add-todo {
+  padding: 10px 20px;
+  font-size: 32px;
+  border: 1px solid black;
+  background-color: transparent;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todos-area__no-todo {
+  font-size: 32px;
+  text-transform: capitalize;
+}

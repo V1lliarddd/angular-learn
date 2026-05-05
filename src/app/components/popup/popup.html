@@ -1,0 +1,24 @@
+<section class="todo-popup">
+  <form action="" class="todo-popup__form">
+    @if (action === 'create') {
+      <h1>New Todo</h1>
+    } @else {
+      <h1>Edit Todo</h1>
+    }
+    <label>
+      <span>Title</span>
+      <input type="text" [(ngModel)]="updatedTodo.title" />
+    </label>
+    <label>
+      <span>Description</span>
+      <textarea type="text" [(ngModel)]="updatedTodo.desc" cols="20"></textarea>
+    </label>
+    <button type="submit">
+      @if (action === 'create') {
+        Create
+      } @else {
+        Edit
+      }
+    </button>
+  </form>
+</section>
