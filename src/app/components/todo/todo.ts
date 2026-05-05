@@ -20,6 +20,9 @@ export class Todo {
     this.showPopup = false;
   }
   public saveTodo(updatedTodo: TodoInterface) {
-    this.todo = updatedTodo;
+    this.todo = { ...updatedTodo };
+  }
+  public completeTodo() {
+    this.todo.isCompleted = true;
   }
 }

@@ -3,12 +3,23 @@
   <h3 class="main__app-description">{{ appDescription }}</h3>
   <section class="todos-area">
     @if (todos) {
-      @for (todo of todos; track todo.id) {
-        <app-todo [todo]="todo" />
+      @for (todo of todos; track todo.title) {
+        @if (!todo.isCompleted) {
+          <app-todo [todo]="todo" />
+        }
       }
     } @else {
       <h3 class="todos-area__no-todo">You got no todos. Add them via button below.</h3>
     }
   </section>
-  <button type="button" class="add-todo">Add Todo</button>
+  <button type="button" class="add-todo" (click)="showPopup()">Add Todo</button>
 </main>
+
+@if (isPopupShow) {
+  <app-popup
+    [todo]="null"
+    [action]="'create'"
+    (closePopup)="closePopup()"
+    (saveTodo)="createTodo($event)"
+  />
+}

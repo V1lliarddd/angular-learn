@@ -1,5 +1,5 @@
 <section class="todo-popup">
-  <form action="" class="todo-popup__form">
+  <form action="" class="todo-popup__form" (ngSubmit)="onSubmit()">
     @if (action === 'create') {
       <h1>New Todo</h1>
     } @else {
@@ -7,11 +7,11 @@
     }
     <label>
       <span>Title</span>
-      <input type="text" [(ngModel)]="updatedTodo.title" />
+      <input type="text" [(ngModel)]="updatedTodo.title" name="title" />
     </label>
     <label>
       <span>Description</span>
-      <textarea type="text" [(ngModel)]="updatedTodo.desc" cols="20"></textarea>
+      <textarea type="text" [(ngModel)]="updatedTodo.desc" cols="20" name="desc"></textarea>
     </label>
     <button type="submit">
       @if (action === 'create') {

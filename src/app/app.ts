@@ -1,18 +1,21 @@
 import { Component } from '@angular/core';
 
-import { Todo } from './utils/interfaces/todo';
+import { Todo as TodoInterface } from './utils/interfaces/todo';
 import { Todo as TodoComponent } from './components/todo/todo';
+import { Popup } from './components/popup/popup';
 
 @Component({
   selector: 'app-root',
-  imports: [TodoComponent],
+  imports: [TodoComponent, Popup],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })
 export class App {
+  public isCreateTodo: boolean = false;
+  public isPopupShow = false;
   readonly appTitle: string = 'Angular Todo';
   readonly appDescription: string = 'You can add/delete/edit todos here';
-  readonly todos: Todo[] | null = [
+  readonly todos: TodoInterface[] | null = [
     {
       id: String(Date.now()),
       title: 'First Todo',
@@ -42,4 +45,13 @@ export class App {
       isCompleted: false,
     },
   ];
+  public showPopup(): void {
+    this.isPopupShow = true;
+  }
+  public closePopup(): void {
+    this.isPopupShow = false;
+  }
+  public createTodo(newTodo: TodoInterface): void {
+    this.todos?.push(newTodo);
+  }
 }

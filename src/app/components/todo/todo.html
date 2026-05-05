@@ -6,7 +6,12 @@
   <h4 class="todo__desc">{{ todo.desc }}</h4>
   <div class="todo__control">
     <button type="button" class="todo__edit" (click)="openPopup()">Edit</button>
-    <input class="todo__is-completed" type="checkbox" [checked]="todo.isCompleted" />
+    <input
+      class="todo__is-completed"
+      type="checkbox"
+      [checked]="todo.isCompleted"
+      (click)="completeTodo()"
+    />
   </div>
 </article>
 
